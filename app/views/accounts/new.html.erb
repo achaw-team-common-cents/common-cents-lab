@@ -1,3 +1,43 @@
-<div ng-controller="newAcctFormCtrl">
-  
+<div class="row" ng-controller="newAcctFormCtrl">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <h3>How much do you need set aside to avoid financial trouble?</h3>
+    <form name="newAccount" novalidate>
+      <div class="form-group">
+        <label for="savings">
+          <h4>How much $$ do you have in a location that you could withdraw tomorrow?<br><em>Note: Don’t count it if withdrawing would give you fees. You can count your checking account.</em></h4>
+        </label>
+        <input id="savings" type="number" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="payFrequency">
+          <h4>How frequently do you get paid?</h4>
+        </label>
+        <select id="payFrequency" class="form-control"></select>
+      </div>
+      <div class="form-group">
+        <h4>How much do you get on each paycheck? Answer one.</h4>
+        <p class="form-inline">I always get <input type="number" class="form-control">
+        </p>
+        <p class="form-inline">I usually get a range between <input type="number" class="form-control"> and  <input type="number" class="form-control"></p>
+      </div>
+      <div class="form-group">
+        <label for="expenses">
+          <h4>Average monthly expenses</h4>
+        </label>
+        <input id="expenses" type="number" class="form-control">
+        <h4><em>Note: If you don’t know, start with your biggest expenses (rent and food) and estimate. </em></h4>
+      </div>
+      <div class="form-group">
+        <label for="difficulty">
+          <h4>How difficult would it be for you to replace your existing income?</h4>
+        </label>
+        <select id="difficulty" class="form-control"></select>
+      </div>
+      <div class="form-group">
+        <h4>Are you ready to see how much you need?</h4>
+        <%= link_to "GO!!!!", "/accounts", method: :post, class: "btn btn-default" %>
+      </div>
+    </form>
+  </div>
 </div>
