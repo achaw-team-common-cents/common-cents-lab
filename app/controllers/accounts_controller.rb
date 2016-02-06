@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
 
   end
 
-  def create
+  def show
 
   end
 
