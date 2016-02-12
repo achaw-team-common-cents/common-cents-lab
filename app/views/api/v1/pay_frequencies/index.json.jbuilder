@@ -1,0 +1,1 @@
+json.array! @pay_frequencies, partial: "pay_frequency", as: :pay_frequency

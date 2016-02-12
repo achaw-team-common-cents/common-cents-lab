@@ -1,0 +1,1 @@
+json.array! @difficulties, partial: "difficulty", as: :difficulty
