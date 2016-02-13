@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :accounts
       resources :pay_frequencies
       resources :difficulties
+      resources :questions
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
