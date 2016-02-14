@@ -1,0 +1,15 @@
+<div class="row" ng-controller="editQuestionsCtrl" ng-init="initialize()">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <h2>Edit Questionnaire</h2>
+    <form id="editQuestions">
+      <div class="form-group" ng-repeat="question in questions | orderBy:'id'">
+        <input ng-model="question.question" class="form-control">
+      </div>
+      <div class="form-group center-text">
+        <p><button class="btn btn-default" ng-click="resetQuestions()">Reset Questions</button></p>
+        <p><button class="btn btn-default btn-lg" ng-click="submitChanges(0)">Submit Changes</button></p>
+      </div>
+    </form>
+  </div>
+</div>

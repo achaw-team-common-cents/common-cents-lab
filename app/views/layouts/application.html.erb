@@ -32,6 +32,7 @@
           </li>
           <% end %>
           <% if current_user %>
+          <li><a href="/questions/">Edit Questions</a></li>
           <li><a href="#">Download CSV of Results</a></li>
           <li><%= link_to "Admin Sign Out", "/users/sign_out", method: :delete %></li>
           <% end %>
