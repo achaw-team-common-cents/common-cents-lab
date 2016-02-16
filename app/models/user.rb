@@ -5,4 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :accounts
+
+  validate :account_has_admin_code
+
+  private
+  def account_has_admin_code
+    puts admin_code
+    errors.add(:admin_code, "is not correct") unless admin_code === ENV["ADMIN_SIGN_UP_CODE"]
+  end
+
 end

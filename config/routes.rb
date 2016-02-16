@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
   resources :accounts
+  resources :questions
   namespace :api do
     namespace :v1 do
       resources :accounts
       resources :pay_frequencies
       resources :difficulties
+      resources :questions
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
