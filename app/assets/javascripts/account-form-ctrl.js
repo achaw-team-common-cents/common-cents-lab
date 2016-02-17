@@ -14,11 +14,13 @@
       });
       $scope.newAccount={};
     }
+
     $scope.resetArray = function() {
       if (!$scope.newAccount.incomeArray[0] && !$scope.newAccount.incomeArray[1]) {
         $scope.newAccount.incomeArray = null;
       }
     }
+    
     $scope.submitAccount = function() {
       if ($scope.newAccount.savings && $scope.newAccount.expenses && ($scope.newAccount.income || $scope.newAccount.incomeArray) && $scope.newAccount.difficulty_id && $scope.newAccount.pay_frequency_id) {
         if ($scope.newAccount.incomeArray) {
