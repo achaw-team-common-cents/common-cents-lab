@@ -8,7 +8,13 @@
       $http.get("/api/v1/difficulties.json").then(function(response) {
         $scope.difficulties = response.data;
       });
-      
+      $http.get("/api/v1/questions.json").then(function(response) {
+        $scope.questions = response.data;
+        $scope.categorizedQuestions = {};
+        for(var i=0;i<$scope.questions.length;i++) {
+          $scope.categorizedQuestions[$scope.questions[i].category] = $scope.questions[i].question;
+        }
+      });
       $http.get("/api/v1/pay_frequencies.json").then(function(response) {
         $scope.payFrequencies = response.data;
       });
