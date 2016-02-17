@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160217212908) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.decimal  "amount_needed",    precision: 5,  scale: 2
+    t.decimal  "amount_needed",    precision: 10, scale: 2
   end
 
   create_table "difficulties", force: :cascade do |t|
