@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4 center-text">
+    <h3 class="bottom-divider">Emergency Savings</h3>
+    <h5>What you need</h5>
+    <% if @account.view_type == 0 %>
+    <%= render partial: "weekly"%>
+    <% elsif @account.view_type == 1 %>
+    <%= render partial: "percentage"%>
+    <% elsif @account.view_type == 2 %>
+    <%= render partial: "total"%>
+    <% end %>
+    <button>THIS IS A BUTTON!</button>
+  </div>
+</div>
