@@ -15,7 +15,7 @@
         </label>
         <select id="payFrequency" name="payFrequency" class="form-control" ng-model="newAccount.pay_frequency_id" ng-options="payFrequency.id as payFrequency.name for payFrequency in payFrequencies track by payFrequency.id"></select>
       </div>
-      <div class="form-group" ng-class="{ 'has-error' : (!newAccount.income && newAccountForm.income.$dirty && !(newAccount.incomeArray[0] || newAccount.incomeArray[1])) || ((newAccountForm.incomeArray1.$dirty || newAccountForm.incomeArray2.$dirty) && (!newAccount.incomeArray[0] && !newAccount.incomeArray[1]))}">
+      <div class="form-group" ng-class="{ 'has-error' : (!newAccount.income && newAccountForm.income.$dirty && !(newAccount.incomeArray[0] || newAccount.incomeArray[1])) || (!newAccount.income && (newAccountForm.incomeArray1.$dirty || newAccountForm.incomeArray2.$dirty) && (!newAccount.incomeArray[0] && !newAccount.incomeArray[1]))}">
         <h4>{{categorizedQuestions["income"]}}</h4>
         <p class="form-inline">{{categorizedQuestions["income always"]}} <input type="number" name="income" class="form-control" ng-model="newAccount.income" ng-disabled="newAccount.incomeArray">
         </p>
