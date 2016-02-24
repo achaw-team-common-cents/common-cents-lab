@@ -19,6 +19,7 @@
         <h4>{{categorizedQuestions["income"]}}</h4>
         <p class="form-inline">{{categorizedQuestions["income always"]}} <input type="number" class="form-control" ng-model="newAccount.income" ng-disabled="newAccount.incomeArray">
         </p>
+        <p>OR</p>
         <p class="form-inline">{{categorizedQuestions["income range"]}} between <input type="number" class="form-control" ng-model="newAccount.incomeArray[0]" ng-disabled="newAccount.income" ng-blur="resetArray()"> and  <input type="number" class="form-control" ng-model="newAccount.incomeArray[1]" ng-disabled="newAccount.income" ng-blur="resetArray()"></p>
       </div>
       <div class="form-group">
