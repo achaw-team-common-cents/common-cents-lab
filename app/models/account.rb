@@ -4,7 +4,7 @@ class Account < ActiveRecord::Base
   belongs_to :pay_frequency
 
   def calculate_amount_needed
-    return savings + (pay_frequency.paid_per_month * income) - (3 * expenses)
+    return (3 * expenses) - savings
   end
 
   def calculate_percentage

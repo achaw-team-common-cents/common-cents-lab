@@ -28,6 +28,13 @@
     }
     
     $scope.submitAccount = function() {
+      $scope.newAccountForm.savings.$dirty = true;
+      $scope.newAccountForm.expenses.$dirty = true;
+      $scope.newAccountForm.income.$dirty = true;
+      $scope.newAccountForm.incomeArray1.$dirty = true;
+      $scope.newAccountForm.incomeArray2.$dirty = true;
+      $scope.newAccountForm.payFrequency.$touched = true;
+      $scope.newAccountForm.difficulty.$touched = true;
       if ($scope.newAccount.savings && $scope.newAccount.expenses && ($scope.newAccount.income || $scope.newAccount.incomeArray) && $scope.newAccount.difficulty_id && $scope.newAccount.pay_frequency_id) {
         if ($scope.newAccount.incomeArray) {
           $scope.newAccount.income = ($scope.newAccount.incomeArray[0] + $scope.newAccount.incomeArray[1]) / 2;
