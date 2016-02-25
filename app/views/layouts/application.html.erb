@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container-fluid" ng-app="app">
+<div class="container-fluid full-size" ng-app="app">
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,7 +30,7 @@
           <% end %>
           <% if current_user %>
           <li><a href="/questions/">Edit Questions</a></li>
-          <li><a href="#">Download CSV of Results</a></li>
+          <li><a href="/accounts.csv">Download CSV of Results</a></li>
           <li><%= link_to "Admin Sign Out", "/users/sign_out", method: :delete %></li>
           <% end %>
         </ul>
