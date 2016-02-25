@@ -11,21 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217212908) do
+ActiveRecord::Schema.define(version: 20160225183517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "pay_frequency_id"
-    t.decimal  "expenses",         precision: 10, scale: 2
-    t.decimal  "savings",          precision: 10, scale: 2
-    t.decimal  "income",           precision: 10, scale: 2
+    t.decimal  "expenses",            precision: 10, scale: 2
+    t.decimal  "savings",             precision: 10, scale: 2
+    t.decimal  "income",              precision: 10, scale: 2
     t.integer  "difficulty_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "view_type"
-    t.decimal  "amount_needed",    precision: 10, scale: 2
+    t.decimal  "amount_needed",       precision: 10, scale: 2
+    t.integer  "entertainment"
+    t.integer  "coffee"
+    t.integer  "meals_out"
+    t.integer  "clothes_electronics"
+    t.integer  "transportation"
+    t.integer  "rent_mortgage"
   end
 
   create_table "difficulties", force: :cascade do |t|
