@@ -12,8 +12,14 @@
     <% end %>
     <p style="font-size: 18px;text-align: center;"> The amount you currently have in savings is: </p>
     <p style="color:#FF851B;font-size: 24px;text-align: center;"><%= number_to_currency(@account.savings) %></p>
-    <p style="font-size: 18px;text-align: center;"> Two last questions: to make this happen, you may have to give up something.  Put a number 1 through 100 to show how willing you are to spend less on these things. 1 means not at all.</p>
-    <form name="editAccount" class="form-horizontal" style="">
+    <form name="editAccount" class="form-horizontal" style="" novalidate>
+    <div class="form-group"  ng-class="{ 'has-error' : editAccount.start.$invalid && editAccount.start.$dirty}">
+      <label class="col-sm-6 control-label" style="font-size:14px;">How likely are you to start on this goal in the next week?</label>
+      <div class="col-md-6">
+        <input name="start" ng-model="account.start" type="number" min="1" max="100" class="form-control" style="width: 80px;" required>
+      </div>
+    </div>
+      <p style="font-size: 18px;text-align: center;"> Two last questions: to make this happen, you may have to give up something.  Put a number 1 through 100 to show how willing you are to spend less on these things. 1 means not at all.</p>
       <div class="form-group" ng-class="{ 'has-error' : editAccount.entertainment.$invalid && editAccount.entertainment.$dirty}">
         <label class="col-sm-6 control-label" style="font-size:14px;">Entertainment/Nights Out</label>
         <div class="col-sm-6">
@@ -53,9 +59,9 @@
     </form>
     <p style="font-size: 18px;text-align: center;"> Great! Congrats on PAYING YOURSELF FIRST! Choose what to do next:</p>
     <div style="text-align:center;margin: 40px 0;">
-      <button class="btn btn-success" ng-click="submitChoice('set up transfer')" ng-disabled="editAccount.$invalid">Set up automatic<br>transfer now</button>
-      <button class="btn btn-success" ng-click="submitChoice('delay transfer')" ng-disabled="editAccount.$invalid">Set up the transfer now,<br>but don’t make it automatic</button>
-      <button class="btn btn-success" ng-click="submitChoice('reminder')" ng-disabled="editAccount.$invalid">Not now, but send me a <br>reminder later</button>
+      <button class="btn btn-success" ng-click="submitChoice('set up transfer and make automatic')" ng-disabled="editAccount.$invalid">Set up automatic<br>transfer now</button>
+      <button class="btn btn-success" ng-click="submitChoice('set up and delay transfer')" ng-disabled="editAccount.$invalid">Set up the transfer now,<br>but don’t make it automatic</button>
+      <button class="btn btn-success" ng-click="submitChoice('send reminder later')" ng-disabled="editAccount.$invalid">Not now, but send me a <br>reminder later</button>
       <button class="btn btn-success" ng-click="submitChoice('no thanks')" ng-disabled="editAccount.$invalid">No thanks, I don’t<br>want to do this now</button>
     </div>
   </div>
