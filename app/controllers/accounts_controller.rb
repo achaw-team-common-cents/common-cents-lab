@@ -13,10 +13,11 @@ class AccountsController < ApplicationController
     @accounts = Account.all
     respond_to do |format|
       format.csv {send_data @accounts.to_csv, 
-          disposition: "attachment; filename=accounts.csv",
-          type: 'text/csv',
-          stream: 'true', 
-          buffer_size: '4096' }
+        disposition: "attachment; filename=accounts.csv",
+        type: 'text/csv',
+        stream: 'true', 
+        buffer_size: '4096'
+      }
     end
   end
 

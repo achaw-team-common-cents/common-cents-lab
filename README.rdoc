@@ -1,9 +1,21 @@
 == README
 
 Running this app locally:
+  
   This app runs using postgresql as the database format
   first run rake db:create
   then rake db:migrate
   then rake db:seed
-  You must seed the data using the seed.rb file in order to set up the data to be entered correctly
+
+  NEVER run rake db:seed more than ONCE PER APP
+  
+  You must seed the data using the seeds.rb file in order to set up the data to be entered correctly
+  
   Gems: run bundle install for current versions of all gems.
+
+  Required: Environment variable ADMIN_SIGN_UP_CODE
+  Create a .env file to set environment variables.
+
+  This app uses Rspec-rails for testing. Automated tests can be run for some model methods.
+
+  To add options for the form, modify appropriate model's entries in the seeds.rb file. For instance, if you wanted to add some banks and websites, you must do so in the seed file before you seed your database. Otherwise you must use a postgresql viewer or the rails console to enter new data in manually.
