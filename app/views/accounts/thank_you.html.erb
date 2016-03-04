@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+  <h3 class="bottom-divider center-text">Emergency Savings</h3>
+    <p style="font-size: 18px;text-align: center;">We are happy you have decided to pay yourself first. Please visit your bank's website to set up a transfer to your savings account</p>
+    <table class="table table-bordered">
+      <tr>
+        <th>Bank Name</th>
+        <th>Website</th>
+      </tr>
+      <% Bank.all.each do |bank| %>
+      <tr>
+        <td><%= bank.name %></td>
+        <td><a href="<%= "http://#{bank.website}" %>"><%= bank.website %></a></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

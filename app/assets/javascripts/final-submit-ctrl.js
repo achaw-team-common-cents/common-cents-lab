@@ -10,7 +10,9 @@
       });
     }
     $scope.submitChoice = function(type) {
+      $scope.account.chosen_option = type
       $http.patch("/api/v1/accounts/" + $scope.account.id + ".json", $scope.account).then(function(response) {
+        $window.location.href = "/accounts/"+response.data.id+"?ty=true"
       });
     }
   });
