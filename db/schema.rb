@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160304001744) do
   end
 
   create_table "pay_frequencies", force: :cascade do |t|
-    t.string   "name"
+    t.string   "nameFre"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "paid_per_month"

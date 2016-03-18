@@ -1,4 +1,23 @@
-PayFrequency.create!([{name: "Monthly", paid_per_month: 1},{name: "2x a month", paid_per_month: 2}, {name: "Weekly", paid_per_month: 4}])
-Difficulty.create!([{name: "Easy: I could quickly get another job with similar pay."},{name: "Average: I’m well qualified for many jobs but realize it may take time to find a new one."},{name: "Difficult: Jobs in my field and salary-level are limited or competitive."},{name: "Very difficult: I lack the right skills for the job market or am in an industry in which it takes a long time to land a new position at comparable pay."}])
-Question.create([{question:"How much $$ do you have in a location that you could withdraw tomorrow?", category:"savings"},{question:"Note: Don’t count it if withdrawing would give you fees. You can count your checking account.", category:"savings note"},{question:"How frequently do you get paid?", category:"pay frequency"},{question:"How much do you get on each paycheck? Answer one.", category:"income"},{question:"I always get", category:"income always"},{question:"I usually get a range", category:"income range"},{question:"Average monthly expenses", category:"expenses"},{question:"Note: If you don’t know, start with your biggest expenses (rent and food) and estimate.", category:"expenses note"},{question:"How difficult would it be for you to replace your existing income?", category:"difficulty"},])
-Bank.create([{name:"Chase Bank", website:"www.chase.com"},{name:"Bank of America", website:"www.bankofamerica.com"},{name:"Citi Bank", website:"www.online.citi.com"},{name:"Wells Fargo", website:"www.wellsfargo.com"},{name:"US Bank", website:"www.usbank.com"},{name:"Bank of the West", website:"www.bankofthewest.com"},{name:"PNC Bank", website:"www.pnc.com"}, {name:"HSBC", website: "us.hsbc.com"},{name:"Capital One", website:"www.capitalone.com"}, {name:"Northern Trust", website:"www.northerntrust.com"}])
+Difficulty.create!([
+  {name: "Easy: I could quickly get another job with similar pay."},
+  {name: "Average: I’m well qualified for many jobs but realize it may take time to find a new one."},
+  {name: "Difficult: Jobs in my field and salary-level are limited or competitive."},
+  {name: "Very difficult: I lack the right skills for the job market or am in an industry in which it takes a long time to land a new position at comparable pay."}
+])
+PayFrequency.create!([
+  {name: "Monthly", paid_per_month: 1},
+  {name: "2x a month", paid_per_month: 2},
+  {name: "Weekly", paid_per_month: 4},
+  {name: "Changes all the time", paid_per_month: nil}
+])
+Question.create!([
+  {question: "Note: Don’t count it if withdrawing would give you fees. You can count your checking account.", category: "savings note"},
+  {question: "How frequently do you get paid?", category: "pay frequency"},
+  {question: "How much do you get on each paycheck? Answer one.", category: "income"},
+  {question: "I always get", category: "income always"},
+  {question: "I usually get a range", category: "income range"},
+  {question: "Average monthly expenses", category: "expenses"},
+  {question: "Note: If you don’t know, start with your biggest expenses (rent and food) and estimate.", category: "expenses note"},
+  {question: "How difficult would it be for you to replace your existing income?", category: "difficulty"},
+  {question: "How much $ do you have in a location that you could withdraw tomorrow?", category: "savings"}
+])
