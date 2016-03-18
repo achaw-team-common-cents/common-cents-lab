@@ -14,7 +14,7 @@
     <p style="color:#FF851B;font-size: 24px;text-align: center;"><%= number_to_currency(@account.savings) %></p>
     <form name="editAccount" class="form-horizontal" style="" novalidate>
     <div class="form-group"  ng-class="{ 'has-error' : editAccount.start.$invalid && editAccount.start.$dirty}">
-      <label class="col-sm-6 control-label" style="font-size:14px;">How likely are you to start on this goal in the next week?</label>
+      <label class="col-sm-6 control-label" style="font-size:14px;">On a scale of 1-100, how likely are you to start on this goal in the next week? (100 represents very likely)</label>
       <div class="col-md-6">
         <input name="start" ng-model="account.start" type="number" min="1" max="100" class="form-control" style="width: 80px;" required>
       </div>
