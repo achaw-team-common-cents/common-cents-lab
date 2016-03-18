@@ -2,41 +2,44 @@
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <h3>How much do you need set aside to avoid financial trouble?</h3>
-    <form name="newAccount" novalidate>
-      <div class="form-group">
+    <form name="newAccountForm" novalidate>
+      <div class="form-group bot-padding-form" ng-class="{ 'has-error' : !newAccount.savings && newAccountForm.savings.$dirty}">
         <label for="savings">
           <h4>{{categorizedQuestions["savings"]}}</h4><h4><em>{{categorizedQuestions["savings note"]}}</em></h4>
         </label>
-        <input id="savings" type="number" class="form-control" ng-model="newAccount.savings">
+        <input id="savings" name="savings" type="number" class="form-control" ng-model="newAccount.savings" min="1">
       </div>
-      <div class="form-group">
+      <div class="form-group bot-padding-form" ng-class="{ 'has-error' : !newAccount.pay_frequency_id && newAccountForm.payFrequency.$touched}">
         <label for="payFrequency">
           <h4>{{categorizedQuestions["pay frequency"]}}</h4>
         </label>
-        <select id="payFrequency" class="form-control" ng-model="newAccount.pay_frequency_id" ng-options="payFrequency.id as payFrequency.name for payFrequency in payFrequencies track by payFrequency.id"></select>
+        <select id="payFrequency" name="payFrequency" class="form-control" ng-model="newAccount.pay_frequency_id" ng-options="payFrequency.id as payFrequency.name for payFrequency in payFrequencies track by payFrequency.id"></select>
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{ 'has-error' : (!newAccount.income && newAccountForm.income.$dirty && !(newAccount.incomeArray[0] || newAccount.incomeArray[1])) || (!newAccount.income && (newAccountForm.incomeArray1.$dirty || newAccountForm.incomeArray2.$dirty) && (!newAccount.incomeArray[0] && !newAccount.incomeArray[1]))}">
         <h4>{{categorizedQuestions["income"]}}</h4>
-        <p class="form-inline">{{categorizedQuestions["income always"]}} <input type="number" class="form-control" ng-model="newAccount.income" ng-disabled="newAccount.incomeArray">
+        <p class="form-inline">{{categorizedQuestions["income always"]}} <input type="number" name="income" class="form-control" ng-model="newAccount.income" ng-disabled="newAccount.incomeArray">
         </p>
-        <p class="form-inline">{{categorizedQuestions["income range"]}} between <input type="number" class="form-control" ng-model="newAccount.incomeArray[0]" ng-disabled="newAccount.income" ng-blur="resetArray()"> and  <input type="number" class="form-control" ng-model="newAccount.incomeArray[1]" ng-disabled="newAccount.income" ng-blur="resetArray()"></p>
       </div>
-      <div class="form-group">
+      <div class="form-group bot-padding-form" ng-class="{ 'has-error' : ((!newAccount.incomeArray[1] || !newAccount.incomeArray[0]) && (newAccountForm.incomeArray1.$dirty || newAccountForm.incomeArray2.$dirty) && !newAccount.income ) || (newAccountForm.income.$dirty && !newAccount.income && !newAccount.incomeArray)}">
+        <p>OR</p>
+        <p class="form-inline">{{categorizedQuestions["income range"]}} between <input type="number" name="incomeArray1" class="form-control" ng-model="newAccount.incomeArray[0]" ng-disabled="newAccount.income" ng-blur="resetArray()" min="1"> and  <input type="number" name="incomeArray2" class="form-control" ng-model="newAccount.incomeArray[1]" ng-disabled="newAccount.income" ng-blur="resetArray()"  min="1"></p>
+      </div>
+      <div class="form-group bot-padding-form" ng-class="{ 'has-error' : !newAccount.expenses && newAccountForm.expenses.$dirty}">
         <label for="expenses">
           <h4>{{categorizedQuestions["expenses"]}}</h4>
         </label>
-        <input id="expenses" type="number" class="form-control" ng-model="newAccount.expenses">
+        <input id="expenses" name="expenses" type="number" class="form-control" ng-model="newAccount.expenses" min="1">
         <h4><em>{{categorizedQuestions["expenses note"]}}</em></h4>
       </div>
-      <div class="form-group">
+      <div class="form-group bot-padding-form" ng-class="{ 'has-error' : !newAccount.difficulty_id && newAccountForm.difficulty.$touched}">
         <label for="difficulty">
           <h4>{{categorizedQuestions["difficulty"]}}</h4>
         </label>
-        <select id="difficulty" class="form-control" ng-model="newAccount.difficulty_id" ng-options="difficulty.id as difficulty.name for difficulty in difficulties track by difficulty.id"></select>
+        <select id="difficulty" name="difficulty" class="form-control" ng-model="newAccount.difficulty_id" ng-options="difficulty.id as difficulty.name for difficulty in difficulties track by difficulty.id"></select>
       </div>
-      <div class="form-group">
+      <div class="form-group bot-padding-form">
         <h4>Are you ready to see how much you need?</h4>
-        <button type="submit" class="btn btn-default" ng-click="submitAccount()">Submit</button>
+        <button type="submit" class="btn btn-success" ng-click="submitAccount()" ng-disabled="newAccountForm.$invalid">Submit</button>
         <h4 ng-if="errorMessage">Please fill out all sections of the form.</h4>
       </div>
     </form>

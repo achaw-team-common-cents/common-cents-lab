@@ -12,3 +12,20 @@
   border-bottom: 1px solid #cacaca;
   box-shadow: 0px 1px 0px 0px white;
 }
+.basic-footer {
+  padding: 15px 15px 10px 15px;
+  background-color:darkgray;
+  color:white;
+}
+div {
+  background-color: inherit;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.bot-padding-form {
+  margin-bottom:50px;
+}
